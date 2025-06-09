@@ -1,0 +1,48 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#1A3A47"/><meta name="description" content="Jobfolio - Piattaforma per la gestione della ricerca di lavoro, candidature e sviluppo professionale"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Jobfolio - Gestisci la tua carriera</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+/* Stili per rendere le feature card cliccabili */
+.FeatureCard {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.FeatureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+</style><script>
+// Aggiornamento del logo e navigabilità delle sezioni
+document.addEventListener('DOMContentLoaded', function() {
+  // Aggiornamento del logo - forza il caricamento del nuovo logo
+  const logoElements = document.querySelectorAll('img[alt="Jobfolio"]');
+  logoElements.forEach(logo => {
+    logo.src = '/logo.jpg?v=' + new Date().getTime(); // Aggiunge timestamp per evitare la cache
+    console.log('Logo aggiornato:', logo);
+  });
+  
+  // Rendere navigabili le sezioni
+  setTimeout(function() {
+    const featureCards = document.querySelectorAll('.FeatureCard');
+    console.log('Feature cards trovate:', featureCards.length);
+    
+    featureCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.querySelector('h3')?.textContent.trim();
+        console.log('Card cliccata:', title);
+        
+        if (title === 'Calcolo Stipendio') {
+          window.location.href = '/salary-calculator';
+        } else if (title === 'Gap Analyzer') {
+          window.location.href = '/gap-analyzer';
+        } else if (title === 'Gestione Candidature') {
+          window.location.href = '/applications';
+        } else if (title === 'Tracciamento Colloqui') {
+          window.location.href = '/reminders-calendar';
+        } else if (title === 'Ricerca Intelligente') {
+          window.location.href = '/job-search';
+        } else if (title === 'Formazione Continua') {
+          window.location.href = '/learning';
+        }
+      });
+    });
+  }, 1000); // Attende 1 secondo per assicurarsi che il DOM sia completamente caricato
+});
+</script><script defer="defer" src="/static/js/main.8ee05b86.js"></script><link href="/static/css/main.e6c13ad2.css" rel="stylesheet"></head><body><noscript>È necessario abilitare JavaScript per eseguire questa applicazione.</noscript><div id="root"></div></body></html>
